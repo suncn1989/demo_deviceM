@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, font { padding: 0; margin: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+fieldset, img { border: 0; vertical-align: top; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+ol, ul, li, dl, dt, dd { list-style: none; }
+input, button, textarea, checkbox, select, radio, form { vertical-align: top; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+.red, .red a { color: #F00; }
+.left { float: left; display: inline; }
+.right { float: right; display: inline; }
+.autohei { height: auto; overflow: hidden; zoom: 1; }
+.clear{*zoom:1;}
+.clear:after{content:"";display:table;clear:both;}
+a { color: #808080; }
+a:hover { color: #000;}
+body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1f3fa;line-height: 1; }
+*{box-sizing:border-box;-webkit-box-sizing:border-box;}
+
+
+#main
+{
+	left:0;
+	top:0;
+}
+
+#left
+{
+	position:fixed;
+	left:0;
+	top:0;
+	width:200px;
+	background:#4d5b69;
+	height:300px;
+}
+
+
+
+#logo
+{
+	line-height:60px;
+	font-size:28px;
+	color:#fff;
+	background-color:#14b9d6;
+	text-align:center;
+}
+
+#left-menu
+{
+	
+}
+
+.header
+{
+	position:fixed;
+	left:200px;
+	top:0;
+	background-color:#fff;
+	z-index:2;
+	right:0;
+	padding:0 20px;
+	box-shadow:0 1px 6px 2px rgba(0,0,0,.2);
+}
+
+
+.date-show
+{
+	height:60px;
+	padding-top:10px;
+}
+#date-time
+{
+	font-size:26px;
+	color:#595959;
+	line-height:26px;
+}
+#date-date
+{
+	color:#666;
+	padding-top:6px;
+	font-size:14px;
+}
+
+.header-username
+{
+	float:right;
+	display:inline;
+}
+
+
+.avtar
+{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.avtar img
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.head-dropdown ul li
+{
+	line-height: 24px;
+}
+.head-droplink
+{
+	padding: 10px;
+	display: block;
+	height: 60px;
+	line-height: 40px;
+	font-size: 16px;
+}
+.head-dropdown
+{
+	margin-top: 10px;
+	right: 0;
+	left: auto;
+}
+ .dropdown-menu
+{
+	margin-top: 5px;
+	right: 0;
+	left: auto;
+}
+.dropdown-menu .fa
+{
+	position: absolute;
+	top:-10px;
+	right: 10px;
+}
+.head-ico .badge
+{
+	position: absolute;
+	margin-top: -10px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	padding: 0;
+	background: #00a0e9;
+}
+#main
+{
+	padding-left:200px;
+	padding-top:60px;
+	padding-bottom:40px;
+}
+.padding20
+{
+	padding:20px;
+}
+.firstB
+{
+}
+.firstB_text
+{
+	line-height:40px;
+	padding-right:5px;
+	font-size:24px;
+}
+.describe
+{
+	margin-top:20px;
+	background-color:#fff;
+	padding:10px 20px;
+	line-height:20px;
+	color:#808080;
+}
