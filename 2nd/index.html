@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
@@ -6,21 +6,17 @@
         <meta charset="utf-8">
     
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
-        <link href="css/all.css" rel="stylesheet" type="text/css">
-        <!--[if IE 7]>
-  		<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
-		<![endif]-->
+        <link href="<?=base_url()?>views/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css">
+        <link href="<?=base_url()?>views/css/font-awesome.min.css" rel="stylesheet" media="screen" type="text/css">
+        <link href="<?=base_url()?>views/css/all.css" rel="stylesheet" type="text/css">
         
-        <script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/index-all.js"></script>
+        <script src="<?=base_url()?>views/js/jquery-1.9.1.min.js"></script>
+        <script src="<?=base_url()?>views/js/bootstrap.min.js"></script>
+        <script src="<?=base_url()?>views/js/index-all.js"></script>
        
 	</head>
 
 <body>
-
         <div class="left_content bgcolor_5">
         	<div class="logo bgcolor_1">
             	设备管理系统
@@ -30,9 +26,6 @@
                 	<li>
                     	<a>
                     		<i class="fa fa-cubes fa-3"></i>
-                            <!--[if IE 7]>
-  							<i class="icon-building"></i>
-							<![endif]-->
                             <p>主信息管理</p>
                         </a>
                     </li>
@@ -84,7 +77,6 @@
         <div class="header clear">
         	<div class="date-show left">
             	<span id="date-time">11:11</span>
-                <p id="date-date">2016-3-23</p>
             </div>
 <!--            
             <div class="dropdown">
@@ -131,26 +123,22 @@
                 <!--1st banner end-->
                 <!--main content start-->
                 <div class="mainInfo">
-                	<div class="col-sm-5ths">
-                    	<div class="infoDetail bgcolor_1 clear">
+                	<div class="col-sm-3">
+                    	<div class="infoDetail bgcolor_1">
                         	<div class="left">
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5ths">
+                    <div class="col-sm-3">
                     	<div class="infoDetail bgcolor_2">
                         </div>
                     </div>
-                    <div class="col-sm-5ths">
+                    <div class="col-sm-3">
                     	<div class="infoDetail bgcolor_3">
                         </div>
                     </div>
-                    <div class="col-sm-5ths">
+                    <div class="col-sm-3">
                     	<div class="infoDetail bgcolor_4">
-                        </div>
-                    </div>
-                    <div class="col-sm-5ths">
-                    	<div class="infoDetail bgcolor_5">
                         </div>
                     </div>
                 </div>
