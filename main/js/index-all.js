@@ -20,11 +20,6 @@ $(function () {
     $('#position_content_content_3f').highcharts({
         chart: {
             type: 'column',
-			events:{
-				click: function(event){  
-                                        alert('The bar was clicked, and you can add any other functions.');  
-                                    }  
-			},
         },
         title: {
             text: '设备位置示意图'
@@ -63,7 +58,12 @@ $(function () {
 		
         series: [{
             name: '设备数量',
-            data: getDeviceNum()
+            data: getDeviceNum(),
+			events:{
+				click: function(e){  
+                                        alert('The bar was clicked, and you can add any other functions.');  
+                                    }  
+			},
 
         }]
     });
