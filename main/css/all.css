@@ -295,6 +295,39 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 {
 	color:#fff;
 }
+
+.position_content
+{
+	margin-top:20px;
+	background-color:#fff;
+	height:500px;
+	padding-top:1px;
+}
+
+.position_content_title
+{
+	border-bottom:#e7e7e7 1px solid;
+	line-height:30px;
+	padding-bottom:5px;
+	margin-top:8px;
+}
+.position_content_title_span
+{
+	color:#009946;
+	font-size:18px;
+	margin-left:20px;	
+}
+.position_content_tabs
+{
+	
+}
+#position_content_content
+{
+	min-width:310px;
+	height:400px;
+	margin:0 auto;
+}
+
 .table_content
 {
 	margin-top:20px;
@@ -310,6 +343,11 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	width:30%;
 	background-color:#fff;
 }
+.table_content_mid2
+{
+	width:23%;
+	background-color:#fff;
+}
 .table_content_right
 {
 	width:30%;
@@ -322,10 +360,15 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	padding-bottom:5px;
 	margin-top:8px;
 }
-.table_content_title span
+.table_content_title_span
 {
 	color:#009946;
 	font-size:18px;
+	margin-left:20px;	
+}
+.table_content_title_alert
+{
+	color:#d9534f;
+	font-size:18px;
 	margin-left:20px;
-	
 }
