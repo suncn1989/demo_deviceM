@@ -49,7 +49,8 @@ function showChart(index)
 	$('#position_content_content_'+nums[index]).highcharts({
         chart: {
             type: 'column',
-			reflow:true
+			//reflow:true,
+			
         },
         title: {
             text: '设备位置示意图'
