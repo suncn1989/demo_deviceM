@@ -1,131 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-    
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
-        <link href="css/all.css" rel="stylesheet" type="text/css">
-        <!--[if IE 7]>
-  		<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
-		<![endif]-->
-        
-        <script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/highcharts.js"></script>
-		<script src="js/index-all.js"></script>
-        
- 
-        
-	</head>
-
-<body>
-
-        <div class="left_content bgcolor_5">
-        	<div class="logo bgcolor_1">
-            	设备管理系统
-            </div>
-            <div class="left-menu">
-            	<ul>
-                	<li>
-                    	<a>
-                    		<i class="fa fa-cubes fa-3"></i>
-                            <p>主信息管理</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-sitemap fa-3"></i>
-                            <p>设备类别</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-info-circle fa-3"></i>
-                            <p>品牌信息</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-windows fa-3"></i>
-                            <p>系统分类</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-files-o fa-3"></i>
-                            <p>资产信息</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-map-marker fa-3"></i>
-                            <p>位置信息</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-wrench fa-3"></i>
-                            <p>维修记录</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a>
-                        	<i class="fa fa-check-square fa-3"></i>
-                            <p>定检记录</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="header clear">
-        	<div class="date-show left">
-            	<span id="date-time">11:11</span>
-                <p id="date-date">2016-3-23</p>
-            </div>
-<!--            
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
--->
-            <!--dropdown-->
-            <div class="dropdown right head-dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <i class="fa fa-user fa-fw"></i>
-                    admin 
-                    <span class="caret"></span> 
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">账号管理</a></li>
-    					<li><a href="#">反馈意见</a></li>
-    					<li><a href="#">退出系统</a></li>
-                </ul>
-			</div>
-            <!--dropdown-->
-        </div>
-    	<div id="main">
-        	<div class="padding20">
+ 	<div class="padding20">
             	<!--1st banner start-->
                 <div class="firstB">
                 	<div class="firstB_text">
-                    	设备管理
+                    	当前位置
+                        <span class="firstB_text_sub">Current position</span>
                     </div>
                     <div class="describe">
-                    	<a href="#">描述</a>
+                    	<a href="#">设备管理</a>
                         >
-                        <a href="#">子描述</a>
+                        <a href="#">首页</a>
                     </div>
                 </div>
                 <!--1st banner end-->
@@ -138,49 +21,49 @@
                             </div>
                             <div class="infoDetail_content">
                             	<p>设备类别数量</p>
-                                <a href="#">12</a>
+                                <a id="mainInfo1_num" href="#"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_6">
                             	<a href="#">more</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div id="mainInfo2"class="col-sm-3">
                     	<div class="infoDetail bgcolor_2 clear">
                         	<div class="left infoDetail_logo">
                                 	<i class="fa fa-info-circle fa-3"></i>
                             </div>
                             <div class="infoDetail_content">
                             	<p>品牌种类</p>
-                                <a href="#">12</a>
+                                <a id="mainInfo2_num" href="#"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_7">
                             	<a href="#">more</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div id="mainInfo3"class="col-sm-3">
                     	<div class="infoDetail bgcolor_3 clear">
                         	<div class="left infoDetail_logo">
                                 	<i class="fa fa-windows fa-3"></i>
                             </div>
                             <div class="infoDetail_content">
                             	<p>系统分类</p>
-                                <a href="#">12</a>
+                                <a id="mainInfo3_num" href="#"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_8">
                             	<a href="#">more</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div id="mainInfo4"class="col-sm-3">
                     	<div class="infoDetail bgcolor_4 clear">
                         	<div class="left infoDetail_logo">
                                 	<i class="fa fa-files-o fa-3"></i>
                             </div>
                             <div class="infoDetail_content">
                             	<p>合同数量</p>
-                                <a href="#">12</a>
+                                <a id="mainInfo4_num" href="#"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_9">
                             	<a href="#">more</a>
@@ -189,6 +72,7 @@
                     </div>
 
                 </div>
+                
                 <!--main content end-->
                 <!--position content start-->
                 <div class="position_content">
@@ -200,34 +84,34 @@
                     </div>
                     <div class="position_content_tabs">
                     	<ul id="position_content_tabs" class="nav nav-tabs">
-                        	<!--
+<!--
                             <li class="active"><a href="#position_content_content_3f" data-toggle="tab">3楼</a></li>
                             <li><a href="#position_content_content_5f" data-toggle="tab">5楼</a></li>
                             <li><a href="#position_content_content_6f" data-toggle="tab">6楼</a></li>
                             <li><a href="#position_content_content_16f" data-toggle="tab">16楼</a></li>
                             <li><a href="#position_content_content_32f" data-toggle="tab">32楼</a></li>
-                            -->
+-->
                     	</ul>
                     
                     	<div id="position_content_tabs_content" class="tab-content">
-                        <!--
+<!--
                             <div id="position_content_content_3f" class="tab-pane fade in active">	
+                            	<img src="application/views/images/loading.gif" />
                             </div>
                             <div id="position_content_content_5f" class="tab-pane fade">
-                            1	
+                            	<img src="application/views/images/loading.gif" />
                             </div>
                             <div id="position_content_content_6f" class="tab-pane fade">	
-                            2
+                            	<img src="application/views/images/loading.gif" />
                             </div>
                             <div id="position_content_content_16f" class="tab-pane fade">	
-                            3
+                            	<img src="application/views/images/loading.gif" />
                             </div>
                             <div id="position_content_content_32f" class="tab-pane fade">	
-                            4
+                            	<img src="application/views/images/loading.gif" />
                             </div>
                         -->
                         </div>
-                        
                     </div>
                 </div>
                 <!--position content end-->
@@ -404,7 +288,3 @@
                 </div>
                 <!--bottom tables end-->
             </div>
-        </div>
-    
-</body>
-</html>

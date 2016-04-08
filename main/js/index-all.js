@@ -1,6 +1,16 @@
 // JavaScript Document
 $(function()
 {
+	showDateTime();					//获取服务器时间	
+	nums = getRoomNum();
+	//show floor
+	showRooms(nums);
+}
+);
+
+/**获取服务器时间**/
+function showDateTime()
+{
 	var mydate = new Date();
 	var t = "";
 	t += mydate.getFullYear()+"-";
@@ -13,13 +23,7 @@ $(function()
 	nowTime += mydate.getHours()+":";
 	nowTime += mydate.getMinutes();
 	$("#date-time").text(nowTime);
-	
-	nums = getRoomNum();
-	//show floor
-	showRooms(nums);
 }
-);
-
 
 function showRooms(roomN)
 {
@@ -31,16 +35,17 @@ function showRooms(roomN)
 	}
 	//tabcontent
 	//tab0
-	$('#position_content_tabs_content').append("<div id=\"position_content_content_" + roomN[0] + "\" class=\"tab-pane fade in active\"></div>");
+	$('#position_content_tabs_content').append("<div id=\"position_content_content_" + roomN[0] + "\" class=\"tab-pane fade in active\"><img src='application/views/images/loading.gif' /></div>");
 	//show tab0's chart
 	showChart(0);
 	for (var i=1; i<roomN.length; i++)
 	{
-		$('#position_content_tabs_content').append("<div id=\"position_content_content_" + roomN[i] + "\" class=\"tab-pane fade\"></div>");
+		$('#position_content_tabs_content').append("<div id=\"position_content_content_" + roomN[i] + "\" class=\"tab-pane fade \"></div>");
 		showChart(i);
 	}
 	
 }
+
 
 
 function showChart(index)

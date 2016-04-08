@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+    
+        <!-- Bootstrap -->
+        <link href="<?=base_url()?>views/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="<?=base_url()?>views/css/font-awesome.min.css" rel="stylesheet" media="screen">
+        <link href="<?=base_url()?>views/css/all.css" rel="stylesheet" type="text/css">
+        <!--[if IE 7]>
+  		<link rel="stylesheet" href="<?=base_url()?>views/css/font-awesome-ie7.min.css">
+		<![endif]-->
+        
+        <script src="<?=base_url()?>views/js/jquery-1.9.1.min.js"></script>
+        <script src="<?=base_url()?>views/js/bootstrap.min.js"></script>
+        <script src="<?=base_url()?>views/js/highcharts.js"></script>
+		<script src="<?=base_url()?>views/js/index-all.js"></script>
+        
+ 
+        
+	</head>
+
+<body>
+
+        <div class="left_content bgcolor_5">
+        	<div id="logo" class="logo bgcolor_1">
+            	设备管理系统
+            </div>
+            <div class="left-menu">
+            	<ul id="left-menu">
+                	<li title="maininfo">
+                    	<a>
+                    		<i class="fa fa-cubes fa-3"></i>
+                            <p>主信息管理</p>
+                        </a>
+                    </li>
+                    <li title="category">
+                    	<a>
+                        	<i class="fa fa-sitemap fa-3"></i>
+                            <p>设备类别</p>
+                        </a>
+                    </li>
+                    <li title="brand">
+                    	<a>
+                        	<i class="fa fa-info-circle fa-3"></i>
+                            <p>品牌信息</p>
+                        </a>
+                    </li>
+                    <li title="system">
+                    	<a>
+                        	<i class="fa fa-windows fa-3"></i>
+                            <p>系统分类</p>
+                        </a>
+                    </li>
+                    <li title="assettag">
+                    	<a>
+                        	<i class="fa fa-files-o fa-3"></i>
+                            <p>资产信息</p>
+                        </a>
+                    </li>
+                    <li title="position">
+                    	<a>
+                        	<i class="fa fa-map-marker fa-3"></i>
+                            <p>位置信息</p>
+                        </a>
+                    </li>
+                    <li title="fixlog">
+                    	<a>
+                        	<i class="fa fa-wrench fa-3"></i>
+                            <p>维修记录</p>
+                        </a>
+                    </li>
+                    <li title="checklog">
+                    	<a>
+                        	<i class="fa fa-check-square fa-3"></i>
+                            <p>定检记录</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header clear">
+        	<div id="date-show" class="date-show left">
+            	<img src="<?=base_url()?>views/images/loading.gif" />
+            </div>
+<!--            
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Dropdown
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+-->
+            <!--dropdown-->
+            <div class="dropdown right head-dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="fa fa-user fa-fw"></i>
+                    admin 
+                    <span class="caret"></span> 
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">账号管理</a></li>
+    					<li><a href="#">反馈意见</a></li>
+    					<li><a href="#">退出系统</a></li>
+                </ul>
+			</div>
+            <!--dropdown-->
+        </div>
+    	<div id="main">
+			<img src="<?=base_url()?>views/images/loading.gif" />
+        </div>
+    
+</body>
+</html>

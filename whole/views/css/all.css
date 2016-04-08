@@ -1,4 +1,9 @@
 @charset "utf-8";
+/* CSS Test */
+.t
+{
+	border:1px solid red;
+}
 /* CSS Document */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, font { padding: 0; margin: 0; }
 table { border-collapse: collapse; border-spacing: 0; }
@@ -332,6 +337,11 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	min-width:310px;
 	height:400px;
 	margin:0 auto;
+}
+
+.table_content
+{
+	margin-top:20px;
 }
 
 /* bootstrap hack: fix content width inside hidden tabs */
