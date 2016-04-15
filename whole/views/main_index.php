@@ -2,13 +2,13 @@
             	<!--1st banner start-->
                 <div class="firstB">
                 	<div class="firstB_text">
-                    	当前位置
-                        <span class="firstB_text_sub">Current position</span>
+                    	设备管理系统
+                        <span class="firstB_text_sub">系统首页</span>
                     </div>
                     <div class="describe">
-                    	<a href="#">设备管理</a>
+                    	<a href="#">系统首页</a>
                         >
-                        <a href="#">首页</a>
+                        <a href="#">分块展示</a>
                     </div>
                 </div>
                 <!--1st banner end-->
@@ -21,8 +21,9 @@
                             </div>
                             <div class="infoDetail_content">
                             	<p>设备类别数量</p>
-                                <a id="mainInfo1_num" href="#"><img src="application/views/images/loading.gif" /></a>
+                                <a id="mainInfo1_num" href="#" data-toggle="modal" data-target="#modal_device"><img src="application/views/images/loading.gif" /></a>
                             </div>
+                            
                             <div class="infoDetail_more bgcolor_6">
                             	<a href="#">more</a>
                             </div>
@@ -35,7 +36,7 @@
                             </div>
                             <div class="infoDetail_content">
                             	<p>品牌种类</p>
-                                <a id="mainInfo2_num" href="#"><img src="application/views/images/loading.gif" /></a>
+                                <a id="mainInfo2_num" href="#" data-toggle="modal" data-target="#modal_brand"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_7">
                             	<a href="#">more</a>
@@ -49,7 +50,7 @@
                             </div>
                             <div class="infoDetail_content">
                             	<p>系统分类</p>
-                                <a id="mainInfo3_num" href="#"><img src="application/views/images/loading.gif" /></a>
+                                <a id="mainInfo3_num" href="#" data-toggle="modal" data-target="#modal_system"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_8">
                             	<a href="#">more</a>
@@ -62,15 +63,90 @@
                                 	<i class="fa fa-files-o fa-3"></i>
                             </div>
                             <div class="infoDetail_content">
-                            	<p>合同数量</p>
-                                <a id="mainInfo4_num" href="#"><img src="application/views/images/loading.gif" /></a>
+                            	<p>资产信息</p>
+                                <a id="mainInfo4_num" href="#" data-toggle="modal" data-target="#modal_assets"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_9">
                             	<a href="#">more</a>
                             </div>
                         </div>
                     </div>
-
+					<!--modal start-->
+                    <!-- Modal device -->
+                    <div class="modal fade" id="modal_device" tabindex="-1" role="dialog" aria-labelledby="modalLabel_device">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel_device">设备类别数量</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row text-center font-size16" id="modal_body_device">
+                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 设备品种名称 </strong></div>
+                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Modal brand -->
+                    <div class="modal fade" id="modal_brand" tabindex="-1" role="dialog" aria-labelledby="modalLabel_brand">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel_brand">品牌种类</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row text-center font-size16" id="modal_body_brand">
+                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 品牌名称 </strong></div>
+                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Modal system -->
+                    <div class="modal fade" id="modal_system" tabindex="-1" role="dialog" aria-labelledby="modalLabel_system">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel_system">系统分类</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row text-center font-size16" id="modal_body_system">
+                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 系统名称 </strong></div>
+                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Modal assets -->
+                    <div class="modal fade" id="modal_assets" tabindex="-1" role="dialog" aria-labelledby="modalLabel_assets">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel_assets">资产信息</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row text-center font-size16" id="modal_body_assets">
+                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 资产编号 </strong></div>
+                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                	<!--modal end-->
                 </div>
                 
                 <!--main content end-->
@@ -114,6 +190,25 @@
                         </div>
                     </div>
                 </div>
+                
+                <!--tab's modal start-->
+                <div class="modal fade" id="modal_assets" tabindex="-1" role="dialog" aria-labelledby="modalLabel_assets">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel_assets">资产信息</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row text-center font-size16" id="modal_body_assets">
+                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 资产编号 </strong></div>
+                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <!--tab's modal end-->
                 <!--position content end-->
                 
                 <!--bottom tables start-->
@@ -171,33 +266,29 @@
                         	<table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                    	<th>时间</th>
                                         <th>设备ID</th>
                                         <th>损坏部分</th>
-                                        <th>时间</th>
                                         <th>详情</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <td>2015-3-12</td>
                                         <td>3231</td>
                                         <td>CPU</td>
-                                        <td>2015-3-12</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
+                                        <td>2014-9-21</td>
                                         <td>42432</td>
                                         <td>RAM</td>
-                                        <td>2014-9-21</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
+                                        <td>2011-4-3</td>
                                         <td>535</td>
                                         <td>HardDisk</td>
-                                        <td>2011-4-3</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                 </tbody>
@@ -215,29 +306,25 @@
                         	<table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                    	<th>时间</th>
                                         <th>设备ID</th>
-                                        <th>时间</th>
                                         <th>备注</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>3231</td>
                                         <td>2015-3-12</td>
+                                        <td>3231</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>42432</td>
                                         <td>2014-9-21</td>
+                                        <td>42432</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
-                                        <td>HardDisk</td>
                                         <td>2011-4-3</td>
+                                        <td>HardDisk</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                 </tbody>
@@ -256,29 +343,26 @@
                     		<table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th>设备ID</th>
                                         <th>到期时间</th>
+                                        <th>设备ID</th>
                                         <th>备注</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="danger">
-                                        <th scope="row">1</th>
-                                        <td>3231</td>
                                         <td>2015-3-12</td>
+                                        <td>3231</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr class="warning">
-                                        <th scope="row">2</th>
+                                       <td>2014-9-21</td>
                                         <td>42432</td>
-                                        <td>2014-9-21</td>
                                         <td>坏坏坏</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
-                                        <td>HardDisk</td>
                                         <td>2011-4-3</td>
+                                        <td>HardDisk</td>
+                                        
                                         <td>坏坏坏</td>
                                     </tr>
                                 </tbody>

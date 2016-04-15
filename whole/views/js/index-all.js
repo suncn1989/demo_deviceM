@@ -17,11 +17,14 @@ $(function()
 				if("success" == status){
 					setTimeout(function(){
 						$("#main").html(data);				//展示各二级页面
+						show($(this).attr("title"));
 					},1000);
 				}
 			}); 
 		});
 	});
+	
+	showCategory();
 	
 	
 });
@@ -38,6 +41,13 @@ function showDateTime()
 	},1000);
 }
 
+
+
+
+
+
+
+
 /**
 ---------------
 |    INDEX    |
@@ -51,11 +61,24 @@ function showMainIndex(){
 		if("success" == status){
 			$("#main").html(data);				//展示首页静态页面
 			showMainInfo();				//获取maininfo，4类统计信息
-			showRoomRack();
-							//获取位置信息，房间+机架
+			showModalContent();			//获取弹出层内名称数量
+			showRoomRack();				//获取位置信息，房间+机架
 		}
 	}); 	
 }
+/*
+function showCategory()
+{
+	$.get("application/views/main_category.php",function(data,status){
+		if("success" == status){
+			$("#main").html(data);				//展示首页静态页面
+			showCategoryList();
+		}
+	}); 	
+	
+}
+*/
+
 
 /**获取maininfo，4类统计信息**/
 function showMainInfo()
@@ -274,3 +297,80 @@ function getDeviceNum(index)
 		return deviceNum[index];
 }
 **/
+
+function getdeviceContent()
+{
+}
+function getbrandContent()
+{
+}
+function getsystemContent()
+{
+}
+function getassetsContent()
+{
+}
+
+function showModalContent()
+{
+	
+	
+	var info_names = ['device','brand','system','assets'];
+	for(var i=0; i<4; i++)
+	{
+		switch(info_names[i])
+		{
+			case 'device':
+				getdeviceContent();
+				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>");
+				break;
+			case 'brand':
+				getbrandContent();
+				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 华为 </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 67 </div>");
+				break;
+			case 'system':
+				getsystemContent();
+				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> ubuntu </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 34 </div>");
+				break;
+			case 'assets':
+				getassetsContent();
+				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 10020202 </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>");
+				break;
+		}
+		
+		
+	}
+}
+
+function showModalDevice()
+{
+	
+}
+
+/*main_category*/
+function getCategory()
+{
+	var category = new Array([111,'server'], [222,'switcher'], [333,'storage'], [444,'workstation']);
+	return category;
+}
+
+
+function changeDisable()
+{
+	$(".C_content_del").removeAttr("disabled");
+}
+
+function showCategoryList()
+{
+	var category = getCategory();
+	for (var i=0; i<category.length; i++)
+	{
+		$('#c_content_table').append("<tr><th scope=\"row\">"+ category[i][0] +"</th><td>"+ category[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#C_content_m_\""+ category[i][0] +">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_"+ category[i][0] +"\">删除</button></td></tr>");
+	}
+	
+	//$('#c_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_server\">删除</button></td></tr>");
+}
+
+
+/*main_category*/
+

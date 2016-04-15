@@ -72,6 +72,21 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	background-color:#009946;
 }
 
+.text-center
+{
+	text-align:center;
+}
+
+.font-size16
+{
+	font-size:16px;
+}
+
+.margin-bottom20
+{
+	margin-bottom:20px;
+}
+
 .left_content
 {
 	position:fixed;
@@ -397,3 +412,37 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	font-size:18px;
 	margin-left:20px;
 }
+
+/*main_category*/
+.describe button
+{
+	margin-left:10px;
+}
+.C_content button
+{
+	margin-left:10px;
+}
+/*
+#C_add
+{
+	margin-left:10px;
+}
+#C_del
+{
+	margin-left:10px;
+}
+*/
+.C_content
+{
+	margin-top:1px;
+	background-color:#fff;
+	padding:10px 20px;
+	line-height:35px;
+	font-size:16px;
+	vertical-align:middle;
+}
+
+
+
+
+/*main_category*/

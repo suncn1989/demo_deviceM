@@ -23,13 +23,14 @@ class Maininfo_model extends CI_Model {
 
 	public function get_maininfo_by_id($id)
 	{
-		$this->db->select('main_info.id,main_info.type_no,main_info.serial_no,main_info.function,main_info.begin_time,main_info.end_time,main_info.ip,main_info.other1,main_info.other2,category.name AS category,brand.name AS brand,position.room,position.rack,asset_tag.number AS asset_tag',FALSE);
+		$this->db->select('main_info.id,main_info.type_no,main_info.serial_no,system.name AS system,system.function AS function,main_info.begin_time,main_info.end_time,main_info.ip,main_info.other1,main_info.other2,category.name AS category,brand.name AS brand,position.room,position.rack,asset_tag.number AS asset_tag',FALSE);
 		$this->db->from('main_info');
 		$this->db->where('main_info.id',$id);
 		$this->db->join('category','main_info.category=category.id','left');
 		$this->db->join('brand','main_info.brand=brand.id','left');
 		$this->db->join('position','main_info.position=position.id','left');
 		$this->db->join('asset_tag','main_info.asset_tag=asset_tag.id','left');
+		$this->db->join('system','main_info.function = system.id','left');
 		$query = $this->db->get();
 		$array1 = $query->result();
 		return $array1;
@@ -37,14 +38,16 @@ class Maininfo_model extends CI_Model {
 
 	public function get_all_maininfo($num,$page,$query)
 	{
+
 		if ($num==null&&$page==null) {
 			# code...
-			$this->db->select('main_info.id,main_info.type_no,main_info.serial_no,main_info.function,main_info.begin_time,main_info.end_time,main_info.ip,main_info.other1,main_info.other2,category.name AS category,brand.name AS brand,position.room,position.rack,asset_tag.number AS asset_tag',FALSE);
+			$this->db->select('main_info.id,main_info.type_no,main_info.serial_no,system.name AS system,system.function AS function,main_info.begin_time,main_info.end_time,main_info.ip,main_info.other1,main_info.other2,category.name AS category,brand.name AS brand,position.room,position.rack,asset_tag.number AS asset_tag',FALSE);
 			$this->db->from('main_info');
 			$this->db->join('category','main_info.category=category.id','left');
 			$this->db->join('brand','main_info.brand=brand.id','left');
 			$this->db->join('position','main_info.position=position.id','left');
 			$this->db->join('asset_tag','main_info.asset_tag=asset_tag.id','left');
+			$this->db->join('system','main_info.function = system.id','left');
 			$this->db->where($query);
 			$query = $this->db->get();
 			return $query->result();
