@@ -17,14 +17,15 @@ $(function()
 				if("success" == status){
 					setTimeout(function(){
 						$("#main").html(data);				//展示各二级页面
-						show($(this).attr("title"));
+						//show($(this).attr("title"));
+						showCategoryList();
 					},1000);
 				}
 			}); 
 		});
 	});
 	
-	showCategory();
+	//showCategory();
 	
 	
 });
