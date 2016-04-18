@@ -27,6 +27,20 @@ class Maininfo extends CI_Controller {
 		}	
 	}
 
+	public function getnum()
+	{
+		$query=$this->input->get();
+		$getnum = $this->Maininfo_model->getnum($query);
+		if ($getnum) {
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($getnum));		
+		} else {
+			$this->output
+			->set_status_header(404);
+		}	
+	}
+
 	public function getone($id)
 	{
 		$get_one_maininfo = $this->Maininfo_model->get_maininfo_by_id($id);

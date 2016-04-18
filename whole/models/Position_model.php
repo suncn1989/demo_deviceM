@@ -34,16 +34,27 @@ class Position_model extends CI_Model {
 		
 	}
 
-	public function add_one_position($room,$rack)
+	public function add_one_position($data)
 	{
-		$data = array(
-			'room'=>$room,
-			'rack'=>$rack,
-			);
+		// $data = array(
+		// 	'room'=>$room,
+		// 	'rack'=>$rack,
+		// 	);
 		$this->db->insert('position',$data);
 		$id = $this->db->insert_id();
 		return $this->get_position_by_id($id);
 	}
+
+	// public function add_one_position($room,$rack)
+	// {
+	// 	$data = array(
+	// 		'room'=>$room,
+	// 		'rack'=>$rack,
+	// 		);
+	// 	$this->db->insert('position',$data);
+	// 	$id = $this->db->insert_id();
+	// 	return $this->get_position_by_id($id);
+	// }
 
 	public function update_one_position($data)
 	{

@@ -69,8 +69,8 @@
           </div>
           <div class="modal-body">
             <div class="row text-center font-size16" id="">
-                <div class="col-xs-8 col-sm-6 margin-bottom20">设备类别名称</div>
-                <div class="col-xs-8 col-sm-6 margin-bottom20"><input type="text" placeholder="设备类别名称" /></div>
+                <div class="col-xs-8 col-sm-6 text-right margin-top5">设备类别名称:</div>
+                <div class="col-xs-8 col-sm-6 text-left"><input type="text" placeholder="设备类别名称" /></div>
             </div>
           </div>
           <div class="modal-footer">
@@ -81,5 +81,7 @@
       </div>
     </div>
     <!--modal delete end-->
+    
+
     <!--main content end-->
 </div>

@@ -25,8 +25,6 @@ $(function()
 		});
 	});
 	
-	//showCategory();
-	
 	
 });
 
@@ -41,13 +39,6 @@ function showDateTime()
 		}); 
 	},1000);
 }
-
-
-
-
-
-
-
 
 /**
 ---------------
@@ -67,19 +58,6 @@ function showMainIndex(){
 		}
 	}); 	
 }
-/*
-function showCategory()
-{
-	$.get("application/views/main_category.php",function(data,status){
-		if("success" == status){
-			$("#main").html(data);				//展示首页静态页面
-			showCategoryList();
-		}
-	}); 	
-	
-}
-*/
-
 
 /**获取maininfo，4类统计信息**/
 function showMainInfo()
@@ -299,53 +277,90 @@ function getDeviceNum(index)
 }
 **/
 
-function getdeviceContent()
-{
+function getdeviceContent(){
+	$.get("index.php/api/Categorys/index",function(data,status){
+		if("success" == status){
+			for(var i=0; i<data.length; i++){
+				$.ajax({
+					type:"get",
+					url:"index.php/api/Maininfo/getnum?category="+data[i].id,
+					async:false,
+					success:
+						function(data1,status){
+							if("success" == status){
+								$('#modal_body_device').append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data[i].name+" </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data1[0].num+"台 </div>");
+							}
+						}
+				});
+			}
+		}
+	}); 
+	
 }
-function getbrandContent()
-{
+function getbrandContent(){
+	$.get("index.php/api/Brands/index",function(data,status){
+		if("success" == status){
+			for(var i=0; i<data.length; i++){
+				$.ajax({
+					type:"get",
+					url:"index.php/api/Maininfo/getnum?brand="+data[i].id,
+					async:false,
+					success:
+						function(data1,status){
+							if("success" == status){
+								$('#modal_body_brand').append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data[i].name+" </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data1[0].num+"台 </div>");
+							}
+						}
+				});
+			}
+		}
+	}); 
 }
-function getsystemContent()
-{
+function getsystemContent(){
+	$.get("index.php/api/System/index",function(data,status){
+		if("success" == status){
+			for(var i=0; i<data.length; i++){
+				$.ajax({
+					type:"get",
+					url:"index.php/api/Maininfo/getnum?function="+data[i].id,
+					async:false,
+					success:
+						function(data1,status){
+							if("success" == status){
+								$('#modal_body_system').append("<div class=\"col-xs-8 col-sm-4 margin-bottom20\"> "+data[i].name+" </div><div class=\"col-xs-8 col-sm-4 margin-bottom20\"> "+data[i].function+" </div><div class=\"col-xs-8 col-sm-4 margin-bottom20\"> "+data1[0].num+"台 </div>");
+							}
+						}
+				});
+			}
+		}
+	});
 }
-function getassetsContent()
-{
+function getassettagsContent(){
+	$.get("index.php/api/Assettags/index",function(data,status){
+		if("success" == status){
+			for(var i=0; i<data.length; i++){
+				$.ajax({
+					type:"get",
+					url:"index.php/api/Maininfo/getnum?asset_tag="+data[i].id,
+					async:false,
+					success:
+						function(data1,status){
+							if("success" == status){
+								$('#modal_body_assets').append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data[i].number+" </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> "+data1[0].num+"台 </div>");
+							}
+						}
+				});
+			}
+		}
+	}); 
 }
 
 function showModalContent()
 {
-	
-	
-	var info_names = ['device','brand','system','assets'];
-	for(var i=0; i<4; i++)
-	{
-		switch(info_names[i])
-		{
-			case 'device':
-				getdeviceContent();
-				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>" + "<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> switcher </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>");
-				break;
-			case 'brand':
-				getbrandContent();
-				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 华为 </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 67 </div>");
-				break;
-			case 'system':
-				getsystemContent();
-				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> ubuntu </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 34 </div>");
-				break;
-			case 'assets':
-				getassetsContent();
-				$('#modal_body_'+info_names[i]).append("<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 10020202 </div>													<div class=\"col-xs-8 col-sm-6 margin-bottom20\"> 12 </div>");
-				break;
-		}
-		
-		
-	}
-}
-
-function showModalDevice()
-{
-	
+	getdeviceContent();
+	getbrandContent();
+	getsystemContent();
+	getassettagsContent();
 }
 
 /*main_category*/
@@ -358,7 +373,7 @@ function getCategory()
 
 function changeDisable()
 {
-	$(".C_content_del").removeAttr("disabled");
+		$(".C_content_del").removeAttr("disabled");
 }
 
 function showCategoryList()
@@ -366,12 +381,20 @@ function showCategoryList()
 	var category = getCategory();
 	for (var i=0; i<category.length; i++)
 	{
-		$('#c_content_table').append("<tr><th scope=\"row\">"+ category[i][0] +"</th><td>"+ category[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#C_content_m_\""+ category[i][0] +">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_"+ category[i][0] +"\">删除</button></td></tr>");
+		temp = genCategoryModal(category[i][0]);
+		$('.mainInfo').append(temp);
+		
+		$('#c_content_table').append("<tr><th scope=\"row\">"+ category[i][0] +"</th><td>"+ category[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#C_content_m_" + category[i][0] + "\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_"+ category[i][0] +"\">删除</button></td></tr>");
 	}
 	
 	//$('#c_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_server\">删除</button></td></tr>");
 }
 
+function genCategoryModal(id)
+{
+	result = "<div class=\"modal fade\" id=\"C_content_m_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"C_content_m_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"C_content_m_"+id+"\"><b>修改设备类别</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\"> <div class=\"col-xs-8 col-sm-6 text-right margin-top5\">设备类别名称:</div> <div class=\"col-xs-8 col-sm-6 text-left\"><input type=\"text\" placeholder=\"设备类别名称\" /></div> </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">保存</button> </div> </div> </div> </div>";
+	return result;
+}
 
 /*main_category*/
 

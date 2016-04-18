@@ -43,7 +43,8 @@ class Position extends CI_Controller {
 	public function addposition()
 	{
 		$data = json_decode(trim(file_get_contents('php://input')),true);
-		$add_position=$this->position_model->add_one_position($data[0]["room"],$data[0]["rack"]);
+		$add_position=$this->position_model->add_one_position($data[0]);
+		//$add_position=$this->position_model->add_one_position($data[0]["room"],$data[0]["rack"]);
 		//$data = $this->input->post();
 		//var_dump($data[0]["name"]);
 		if ($add_position) {

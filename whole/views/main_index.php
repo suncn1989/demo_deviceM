@@ -25,7 +25,7 @@
                             </div>
                             
                             <div class="infoDetail_more bgcolor_6">
-                            	<a href="#">more</a>
+                            	<a href="#" data-toggle="modal" data-target="#modal_device">more</a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <a id="mainInfo2_num" href="#" data-toggle="modal" data-target="#modal_brand"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_7">
-                            	<a href="#">more</a>
+                            	<a href="#" data-toggle="modal" data-target="#modal_brand">more</a>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                                 <a id="mainInfo3_num" href="#" data-toggle="modal" data-target="#modal_system"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_8">
-                            	<a href="#">more</a>
+                            	<a href="#" data-toggle="modal" data-target="#modal_system">more</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <a id="mainInfo4_num" href="#" data-toggle="modal" data-target="#modal_assets"><img src="application/views/images/loading.gif" /></a>
                             </div>
                             <div class="infoDetail_more bgcolor_9">
-                            	<a href="#">more</a>
+                            	<a href="#" data-toggle="modal" data-target="#modal_assets">more</a>
                             </div>
                         </div>
                     </div>
@@ -120,8 +120,9 @@
                           </div>
                           <div class="modal-body">
                             <div class="row text-center font-size16" id="modal_body_system">
-                            	<div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 系统名称 </strong></div>
-                                <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
+                            	<div class="col-xs-8 col-sm-4 margin-bottom20"><strong> 所属系统 </strong></div>
+                            	<div class="col-xs-8 col-sm-4 margin-bottom20"><strong> 功能模块 </strong></div>
+                                <div class="col-xs-8 col-sm-4 margin-bottom20"><strong> 数量 </strong></div>
                             </div>
                           </div>
                           
@@ -143,6 +144,7 @@
                                 <div class="col-xs-8 col-sm-6 margin-bottom20"><strong> 数量 </strong></div>
                             </div>
                           </div>
+                          
                         </div>
                       </div>
                     </div>
