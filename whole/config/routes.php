@@ -168,6 +168,75 @@ $route['api/maininfo/(:num)']['GET'] = 'api/maininfo/getone/$1';
 $route['api/maininfo/num/(:num)/page/(:num)'] = 'api/maininfo/index/$1/$2';
 
 
+/*
+| --------- |
+| fixlog |
+| --------- |
+*/
+//依据ID获取一个设备类型，返回404表示没有这个位置
+$route['api/fixlog/(:num)']['GET'] = 'api/fixlog/getone/$1';
+//获取设备位置列表，如果需要分页可以带上num（每页数），page（第几页）,返回404代表超出。
+$route['api/fixlog/num/(:num)/page/(:num)'] = 'api/fixlog/index/$1/$2';
+/*增加设备类型，post一个JSON数据，格式如下：
+
+[
+	{
+	"name": "工作站"
+	}
+]
+
+|  成功后将会返回201 ，同时返回添加的数据JSON格式
+*/
+$route['api/fixlog']['POST'] = 'api/fixlog/addfixlog';
+/*修改设备类型，put一个JSON数据，格式如下：
+
+[
+	{
+	"id":"9",
+	"name": "工作站"
+	}
+]
+
+|  成功后将会返回200 ，同时返回修改后的数据JSON格式
+*/
+$route['api/fixlog']['PUT'] = 'api/fixlog/updatefixlog';
+$route['api/fixlog/(:num)']['DELETE'] = 'api/fixlog/deletefixlog/$1';
+
+
+/*
+| --------- |
+| checklog |
+| --------- |
+*/
+//依据ID获取一个设备类型，返回404表示没有这个位置
+$route['api/checklog/(:num)']['GET'] = 'api/checklog/getone/$1';
+//获取设备位置列表，如果需要分页可以带上num（每页数），page（第几页）,返回404代表超出。
+$route['api/checklog/num/(:num)/page/(:num)'] = 'api/checklog/index/$1/$2';
+/*增加设备类型，post一个JSON数据，格式如下：
+
+[
+	{
+	"name": "工作站"
+	}
+]
+
+|  成功后将会返回201 ，同时返回添加的数据JSON格式
+*/
+$route['api/checklog']['POST'] = 'api/checklog/addchecklog';
+/*修改设备类型，put一个JSON数据，格式如下：
+
+[
+	{
+	"id":"9",
+	"name": "工作站"
+	}
+]
+
+|  成功后将会返回200 ，同时返回修改后的数据JSON格式
+*/
+$route['api/checklog']['PUT'] = 'api/checklog/updatechecklog';
+$route['api/checklog/(:num)']['DELETE'] = 'api/checklog/deletechecklog/$1';
+
 
 /*
 | --------- |

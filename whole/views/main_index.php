@@ -264,38 +264,7 @@
                                 维修记录
                             </span>
                         </div>
-                        <div>
-                        	<table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                    	<th>时间</th>
-                                        <th>设备ID</th>
-                                        <th>损坏部分</th>
-                                        <th>详情</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2015-3-12</td>
-                                        <td>3231</td>
-                                        <td>CPU</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2014-9-21</td>
-                                        <td>42432</td>
-                                        <td>RAM</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2011-4-3</td>
-                                        <td>535</td>
-                                        <td>HardDisk</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div id="fix_log"><img src='application/views/images/loading.gif' /></div>
                     </div>
                     <div class="table_content_mid left marginLeft20 bgcolor_3">
                     	 <div class="table_content_title">
@@ -304,34 +273,7 @@
                                 定检记录
                             </span>
                         </div>
-                        <div>
-                        	<table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                    	<th>时间</th>
-                                        <th>设备ID</th>
-                                        <th>备注</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2015-3-12</td>
-                                        <td>3231</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2014-9-21</td>
-                                        <td>42432</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2011-4-3</td>
-                                        <td>HardDisk</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div id="check_log"><img src='application/views/images/loading.gif' /></div>
                   
                     </div>
                     <div class="table_content_right left marginLeft20 bgcolor_3">
@@ -341,35 +283,7 @@
                                 保修到期预警
                             </span>
                         </div>
-                        <div>
-                    		<table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>到期时间</th>
-                                        <th>设备ID</th>
-                                        <th>备注</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="danger">
-                                        <td>2015-3-12</td>
-                                        <td>3231</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr class="warning">
-                                       <td>2014-9-21</td>
-                                        <td>42432</td>
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2011-4-3</td>
-                                        <td>HardDisk</td>
-                                        
-                                        <td>坏坏坏</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                    </div>
+                        <div id="what_will_end"><img src='application/views/images/loading.gif' /></div>
                     </div>
                 </div>
                 <!--bottom tables end-->

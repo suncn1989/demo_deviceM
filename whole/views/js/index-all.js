@@ -1,7 +1,10 @@
+//category delete button status control
+var C_del_status = true;
 
 $(function()
 {
 	showDateTime();					//获取服务器时间
+	var _t = setInterval(showDateTime(),5000);
 	
 	/**获取首页div-main信息**/
 	showMainIndex(); 
@@ -15,11 +18,9 @@ $(function()
 			$("#main").html("<img src='application/views/images/loading.gif' />");	
 			$.get("application/views/main_"+$(this).attr("title")+".php",function(data,status){
 				if("success" == status){
-					setTimeout(function(){
 						$("#main").html(data);				//展示各二级页面
 						//show($(this).attr("title"));
 						showCategoryList();
-					},1000);
 				}
 			}); 
 		});
@@ -31,13 +32,11 @@ $(function()
 /**获取服务器时间**/
 function showDateTime()
 {
-	var _t = setInterval(function(){
 		$.get("application/controllers/util/gettime.php",function(data,status){
 			if("success" == status){
 				$("#date-show").html(data);
 			}
 		}); 
-	},1000);
 }
 
 /**
@@ -54,7 +53,10 @@ function showMainIndex(){
 			$("#main").html(data);				//展示首页静态页面
 			showMainInfo();				//获取maininfo，4类统计信息
 			showModalContent();			//获取弹出层内名称数量
-			showRoomRack();				//获取位置信息，房间+机架
+			showRoomRack();				//获取位置信息，房间+机架量
+			showFixLog();				//获取维修记录
+			showCheckLog();				//获取定检记录
+			showWhatWillEnd();				//获取即将到期设备
 		}
 	}); 	
 }
@@ -62,7 +64,6 @@ function showMainIndex(){
 /**获取maininfo，4类统计信息**/
 function showMainInfo()
 {
-	setTimeout(function(){
 		$.get("index.php/api/Categorys/getnum",function(data,status){
 			if("success" == status){
 				$("#mainInfo1_num").html(data);
@@ -83,7 +84,6 @@ function showMainInfo()
 				$("#mainInfo4_num").html(data);
 			}
 		}); 
-	},1000);
 	
 }
 
@@ -143,6 +143,12 @@ function showRoomRack()
 										devnums[j][k].y = data.length;
 										devnums[j][k].url = "www.baidu.com";
 									}
+								},
+						error:
+							function(a,b,c){
+								devnums[j][k] = {};
+								devnums[j][k].y = 0;
+								devnums[j][k].url = "#";
 								}
 						   });
 				}
@@ -234,9 +240,51 @@ function showChart(nums,index,racks,devnums)
 	
 			}]
 		});
-	},1000);
+	},1);
 }
 
+function showFixLog(){
+	$.get("index.php/api/fixlog?orderbydesc=time",function(data,status){
+		if("success" == status){
+			var str = "<table class=\"table table-bordered\"><thead><tr><th>时间</th><th>设备ID</th><th>损坏部分</th><th>详情</th></tr></thead><tbody>";
+			for(var i = 0; i < ((data.length<=5)?data.length:5); i++){
+				str += "<tr><td>"+data[i].time+"</td><td>"+data[i].dev_id+"</td><td>"+data[i].partname+"</td><td>"+data[i].detail+"</td></tr>";
+			}
+			str += "</tbody></table>";
+                                
+			$("#fix_log").html(str);
+		}
+	}); 
+}
+
+function showCheckLog(){
+	$.get("index.php/api/checklog?orderbydesc=time",function(data,status){
+		if("success" == status){
+			var str = "<table class=\"table table-bordered\"><thead><tr><th>时间</th><th>设备ID</th><th>详情</th></tr></thead><tbody>";
+			for(var i = 0; i < ((data.length<=5)?data.length:5); i++){
+				str += "<tr><td>"+data[i].time+"</td><td>"+data[i].dev_id+"</td><td>"+data[i].detail+"</td></tr>";
+			}
+			str += "</tbody></table>";
+                                
+			$("#check_log").html(str);
+		}
+	}); 
+}
+
+function showWhatWillEnd(){
+	$.get("index.php/api/Maininfo/index/5/1/?orderby=end_time",function(data,status){
+		if("success" == status){
+			var str = "<table class=\"table table-bordered\"><thead><tr><th>时间</th><th>设备ID</th><th>位置</th></tr></thead><tbody>";
+			for(var i = 0; i < ((data.length<=5)?data.length:5); i++){
+				//str += "<tr><td>"+data[i].end_time+"</td><td>"+data[i].id+"</td><td>该"+data[i].category+"设备维保开始时间为"+data[i].begin_time+"，品牌为"+data[i].brand+"，位置在"+data[i].room+"房间"+data[i].rack+"机架。</td></tr>";
+				str += "<tr><td>"+data[i].end_time+"</td><td>"+data[i].id+"</td><td>"+data[i].room+"房间"+data[i].rack+"-"+data[i].pos_num+"</td></tr>";
+			}
+			str += "</tbody></table>";
+                                
+			$("#what_will_end").html(str);
+		}
+	}); 
+}
 
 /**
 function getRackID(index)
@@ -373,7 +421,19 @@ function getCategory()
 
 function changeDisable()
 {
+	if(C_del_status == true)
+	{
 		$(".C_content_del").removeAttr("disabled");
+		
+		$("#C_del").text("取消删除");
+	}
+	else
+	{
+		$("#C_del").text("删除");
+		$(".C_content_del").attr("disabled","disabled");
+		
+	}
+	C_del_status = !C_del_status;
 }
 
 function showCategoryList()
