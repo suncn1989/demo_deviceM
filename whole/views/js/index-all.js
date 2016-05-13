@@ -1,5 +1,8 @@
 //category delete button status control
 var C_del_status = true;
+var B_del_status = true;
+var S_del_status = true;
+
 
 $(function()
 {
@@ -15,12 +18,13 @@ $(function()
 	/**左侧导航点击事件**/
 	$("#left-menu").each(function(index){
 		$(this).children().click(function(){
+			//左侧导航点击标记flag							  
+			leftMenuFlag = $(this).attr("title");
 			$("#main").html("<img src='application/views/images/loading.gif' />");	
-			$.get("application/views/main_"+$(this).attr("title")+".php",function(data,status){
+			$.get("application/views/main_"+leftMenuFlag+".php",function(data,status){
 				if("success" == status){
 						$("#main").html(data);				//展示各二级页面
-						//show($(this).attr("title"));
-						showCategoryList();
+						showLeftMenu(leftMenuFlag);
 				}
 			}); 
 		});
@@ -37,6 +41,21 @@ function showDateTime()
 				$("#date-show").html(data);
 			}
 		}); 
+}
+
+/**左侧导航点击加载静态页面后，异步加载动态数据**/
+function showLeftMenu(flag){
+	if("category" == flag){
+		showCategoryList();
+	}
+	else if ("brand" == flag)
+	{
+		showBrandList();
+	}
+	else if ("system" == flag)
+	{
+		showSystemList();
+	}
 }
 
 /**
@@ -410,8 +429,76 @@ function showModalContent()
 	getsystemContent();
 	getassettagsContent();
 }
+/**
+---------------
+|    INDEX    |
+|    E N D    |
+---------------
+**/
 
-/*main_category*/
+
+//Delete button control for each page.
+function changeDisable(tmp)
+{
+	
+	if (tmp == "C")
+	{
+		if(C_del_status == true)
+		{
+			$(".C_content_del").removeAttr("disabled");
+			
+			$("#C_del").text("取消删除");
+		}
+		else
+		{
+			$("#C_del").text("删除");
+			$(".C_content_del").attr("disabled","disabled");
+			
+		}
+		C_del_status = !C_del_status;
+	}
+	else if (tmp == "B")
+	{
+		if(B_del_status == true)
+		{
+			$(".B_content_del").removeAttr("disabled");
+			
+			$("#B_del").text("取消删除");
+		}
+		else
+		{
+			$("#B_del").text("删除");
+			$(".B_content_del").attr("disabled","disabled");
+			
+		}
+		B_del_status = !B_del_status;
+	}
+	else if (tmp == "S")
+	{
+		if(S_del_status == true)
+		{
+			$(".S_content_del").removeAttr("disabled");
+			
+			$("#S_del").text("取消删除");
+		}
+		else
+		{
+			$("#S_del").text("删除");
+			$(".S_content_del").attr("disabled","disabled");
+			
+		}
+		S_del_status = !S_del_status;
+	}
+	
+}
+//Delete button control for each page.
+
+/**
+------------------
+|    CATEGORY    |
+|      BEGIN     |
+------------------
+**/
 function getCategory()
 {
 	var category = new Array([111,'server'], [222,'switcher'], [333,'storage'], [444,'workstation']);
@@ -419,42 +506,148 @@ function getCategory()
 }
 
 
-function changeDisable()
-{
-	if(C_del_status == true)
-	{
-		$(".C_content_del").removeAttr("disabled");
-		
-		$("#C_del").text("取消删除");
-	}
-	else
-	{
-		$("#C_del").text("删除");
-		$(".C_content_del").attr("disabled","disabled");
-		
-	}
-	C_del_status = !C_del_status;
-}
+
 
 function showCategoryList()
 {
 	var category = getCategory();
 	for (var i=0; i<category.length; i++)
 	{
-		temp = genCategoryModal(category[i][0]);
-		$('.mainInfo').append(temp);
+		//modification confirm page
+		temp_m = genCategoryModal_m(category[i][0]);
+		$('.mainInfo').append(temp_m);
+		//delete confirm page
+		temp_d = genCategoryModal_d(category[i][0]);
+		$('.mainInfo').append(temp_d);
 		
-		$('#c_content_table').append("<tr><th scope=\"row\">"+ category[i][0] +"</th><td>"+ category[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#C_content_m_" + category[i][0] + "\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_"+ category[i][0] +"\">删除</button></td></tr>");
+		$('#C_content_table').append("<tr><th scope=\"row\">"+ category[i][0] +"</th><td>"+ category[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#C_content_m_" + category[i][0] + "\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" data-toggle=\"modal\" disabled=\"disabled\" data-target=\"#C_content_d_" + category[i][0] + "\" id=\"C_content_button_d_"+ category[i][0] + "\">删除</button></td></tr>");
 	}
 	
-	//$('#c_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_server\">删除</button></td></tr>");
+	//$('#C_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary C_content_del\" disabled=\"disabled\" id=\"C_content_d_server\">删除</button></td></tr>");
 }
 
-function genCategoryModal(id)
+//modification
+function genCategoryModal_m(id)
 {
 	result = "<div class=\"modal fade\" id=\"C_content_m_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"C_content_m_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"C_content_m_"+id+"\"><b>修改设备类别</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\"> <div class=\"col-xs-8 col-sm-6 text-right margin-top5\">设备类别名称:</div> <div class=\"col-xs-8 col-sm-6 text-left\"><input type=\"text\" placeholder=\"设备类别名称\" /></div> </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">保存</button> </div> </div> </div> </div>";
 	return result;
 }
 
-/*main_category*/
+//delete
+function genCategoryModal_d(id)
+{
+	result = "<div class=\"modal fade\" id=\"C_content_d_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"C_content_d_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"C_content_d_"+id+"\"><b>删除</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\">确认删除 </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">确认</button> </div> </div> </div> </div>";
+	return result;
+}
+
+/**
+------------------
+|    CATEGORY    |
+|      END     |
+------------------
+**/
+
+/**
+------------------
+|    BRAND    |
+|      BEGIN     |
+------------------
+**/
+
+function getBrand()
+{
+	var brand = new Array([111,'华为'], [222,'中兴'], [333,'华三'], [444,'HP']);
+	return brand;
+}
+
+function showBrandList()
+{
+	var brand = getBrand();
+	for (var i=0; i<brand.length; i++)
+	{
+		//modification confirm page
+		temp_m = genBrandModal_m(brand[i][0]);
+		$('.mainInfo').append(temp_m);
+		//delete confirm page
+		temp_d = genBrandModal_d(brand[i][0]);
+		$('.mainInfo').append(temp_d);
+		
+		$('#B_content_table').append("<tr><th scope=\"row\">"+ brand[i][0] +"</th><td>"+ brand[i][1] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#B_content_m_" + brand[i][0] + "\">修改</button><button type=\"button\" class=\"btn btn-primary B_content_del\" data-toggle=\"modal\" disabled=\"disabled\" data-target=\"#B_content_d_" + brand[i][0] + "\" id=\"B_content_button_d_"+ brand[i][0] + "\">删除</button></td></tr>");
+	}
+	
+	//$('#c_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary B_content_del\" disabled=\"disabled\" id=\"B_content_d_server\">删除</button></td></tr>");
+}
+
+//modification
+function genBrandModal_m(id)
+{
+	result = "<div class=\"modal fade\" id=\"B_content_m_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"B_content_m_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"B_content_m_"+id+"\"><b>修改设备类别</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\"> <div class=\"col-xs-8 col-sm-6 text-right margin-top5\">设备类别名称:</div> <div class=\"col-xs-8 col-sm-6 text-left\"><input type=\"text\" placeholder=\"设备类别名称\" /></div> </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">保存</button> </div> </div> </div> </div>";
+	return result;
+}
+
+//delete
+function genBrandModal_d(id)
+{
+	result = "<div class=\"modal fade\" id=\"B_content_d_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"B_content_d_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"B_content_d_"+id+"\"><b>删除</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\">确认删除 </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">确认</button> </div> </div> </div> </div>";
+	return result;
+}
+
+/**
+------------------
+|    BRAND    |
+|      END     |
+------------------
+**/
+
+/**
+------------------
+|    SYSTEM    |
+|      BEGIN     |
+------------------
+**/
+
+function getSystem()
+{
+	var system = new Array([111,'1号平台','门户服务器'], [111,'1号平台','上游服务器'], [111,'1号平台','下游服务器'], [111,'1号平台','内容传输服务器']);
+	return system;
+}
+
+function showSystemList()
+{
+	var system = getSystem();
+	for (var i=0; i<system.length; i++)
+	{
+		//modification confirm page
+		temp_m = genSystemModal_m(system[i][0]);
+		$('.mainInfo').append(temp_m);
+		//delete confirm page
+		temp_d = genSystemModal_d(system[i][0]);
+		$('.mainInfo').append(temp_d);
+		
+		$('#S_content_table').append("<tr><th scope=\"row\">"+ system[i][0] +"</th><td>"+ system[i][1] +"</td><td>"+ system[i][2] +"</td><td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#S_content_m_" + system[i][0] + "\">修改</button><button type=\"button\" class=\"btn btn-primary S_content_del\" data-toggle=\"modal\" disabled=\"disabled\" data-target=\"#S_content_d_" + system[i][0] + "\" id=\"S_content_button_d_"+ system[i][0] + "\">删除</button></td></tr>");
+	}
+	
+	//$('#c_content_table').append("<tr><th scope=\"row\">1</th><td>服务器</td><td><button type=\"button\" class=\"btn btn-primary\">修改</button><button type=\"button\" class=\"btn btn-primary S_content_del\" disabled=\"disabled\" id=\"S_content_d_server\">删除</button></td></tr>");
+}
+
+//modification
+function genSystemModal_m(id)
+{
+	result = "<div class=\"modal fade\" id=\"S_content_m_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"S_content_m_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"S_content_m_"+id+"\"><b>修改系统分类信息</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\"> <div class=\"col-xs-8 col-sm-6 text-right margin-top5\">系统分类名称:</div> <div class=\"col-xs-8 col-sm-6 text-left\"><input type=\"text\" placeholder=\"系统分类名称\" /></div> </div> <div class=\"row text-center font-size16\" id=\"\"> <div class=\"col-xs-8 col-sm-6 text-right margin-top5\">系统应用功能:</div> <div class=\"col-xs-8 col-sm-6 text-left\"><input type=\"text\" placeholder=\"系统应用功能\" /></div> </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">保存</button> </div> </div> </div> </div>";
+	return result;
+}
+
+//delete
+function genSystemModal_d(id)
+{
+	result = "<div class=\"modal fade\" id=\"S_content_d_"+id+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"S_content_d_"+id+"\"> <div class=\"modal-dialog\" role=\"document\"> <div class=\"modal-content\"> <div class=\"modal-header\"> <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <h4 class=\"modal-title\" id=\"S_content_d_"+id+"\"><b>删除</b></h4> </div> <div class=\"modal-body\"> <div class=\"row text-center font-size16\" id=\"\">确认删除 </div> </div> <div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> <button type=\"button\" class=\"btn btn-primary\">确认</button> </div> </div> </div> </div>";
+	return result;
+}
+
+/**
+------------------
+|    SYSTEM    |
+|      END     |
+------------------
+**/
 

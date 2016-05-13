@@ -3,7 +3,7 @@
     <div class="firstB">
         <div class="firstB_text">
             当前位置
-            <span class="firstB_text_sub">Current position</span>
+            <span class="firstB_text_sub">设备类别</span>
         </div>
         <div class="describe">
             <a href="#">设备类别</a>
@@ -16,7 +16,7 @@
     <div class="mainInfo">
     	<div class="describe">
             <button type="button" class="btn btn-primary" id="C_add" data-toggle="modal" data-target="#modal_C_add">增加</button>
-            <button type="button" class="btn btn-danger" id="C_del" onclick="changeDisable();">删除</button>
+            <button type="button" class="btn btn-danger" id="C_del" onclick=changeDisable("C")>删除</button>
         </div>
         <div class="C_content">
             <table class="table table-striped">
@@ -27,7 +27,7 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody id="c_content_table">
+                <tbody id="C_content_table">
                 <!--
                     <tr>
                     	<th scope="row">1</th>

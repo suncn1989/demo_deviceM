@@ -425,6 +425,12 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	margin-left:20px;
 }
 
+.row
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 /*main_category*/
 .describe button
 {
@@ -434,16 +440,6 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 {
 	margin-left:10px;
 }
-/*
-#C_add
-{
-	margin-left:10px;
-}
-#C_del
-{
-	margin-left:10px;
-}
-*/
 .C_content
 {
 	margin-top:1px;
@@ -453,8 +449,36 @@ body { font-family: "Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;background: #f1
 	font-size:16px;
 	vertical-align:middle;
 }
-
-
-
-
 /*main_category*/
+
+/*main_brand*/
+.B_content button
+{
+	margin-left:10px;
+}
+.B_content
+{
+	margin-top:1px;
+	background-color:#fff;
+	padding:10px 20px;
+	line-height:35px;
+	font-size:16px;
+	vertical-align:middle;
+}
+/*main_brand*/
+
+/*main_system*/
+.S_content button
+{
+	margin-left:10px;
+}
+.S_content
+{
+	margin-top:1px;
+	background-color:#fff;
+	padding:10px 20px;
+	line-height:35px;
+	font-size:16px;
+	vertical-align:middle;
+}
+/*main_system*/
